@@ -1,7 +1,7 @@
 zone "<%= @zone %>" {
     type <%= @zonetype %>;
 <% if @zonetype == 'forward' -%>
-    forward <%= @forward %>
+    forward <%= @forward %>;
 <% end -%>
 <% if @file == true -%>
     file "<%= @zonefilename %>";
