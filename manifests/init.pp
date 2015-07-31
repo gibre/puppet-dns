@@ -11,7 +11,11 @@ class dns(
   $zonefilepath       = $::dns::params::zonefilepath,
   $localzonepath      = $::dns::params::localzonepath,
   $forwarders         = $::dns::params::forwarders,
-  $listen_on_v6       = $::dns::params::listen_on_v6
+  $listen_on_v6       = $::dns::params::listen_on_v6,
+  $recursion          = $::dns::params::recursion,
+  $allow_query        = $::dns::params::allow_query,
+  $dnssec_enable      = $::dns::params::dnssec_enable,
+  $dnssec_validation  = $::dns::params::dnssec_validation
 ) inherits dns::params {
   class { '::dns::install': } ~>
   class { '::dns::config': } ~>

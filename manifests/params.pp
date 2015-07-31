@@ -31,12 +31,16 @@ class dns::params {
     $namedconf_path     = "${dnsdir}/named.conf"
 
     #pertaining to rndc
-    $rndckeypath      = "${dnsdir}/rndc.key"
+    $rndckeypath        = "${dnsdir}/rndc.key"
 
     #pertaining to views
-    $publicviewpath   = "${dnsdir}/zones.conf"
+    $publicviewpath     = "${dnsdir}/zones.conf"
 
-    $forwarders       = []
+    $forwarders         = []
 
-    $listen_on_v6     = 'any'
+    $listen_on_v6       = 'any'
+    $recursion          = 'yes' 
+    $allow_query        = [ 'any' ]
+    $dnssec_enable      = 'no'
+    $dnssec_validation  = 'no'
 }
