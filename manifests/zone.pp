@@ -32,14 +32,15 @@ define dns::zone (
     order   => "10-${zone}",
   }
 
-  file { $zonefilename:
-    ensure  => file,
-    owner   => $dns::user,
-    group   => $dns::group,
-    mode    => '0644',
-    content => template('dns/zone.header.erb'),
-    replace => false,
-    onlyif  => $file,
-    notify  => Service[$::dns::namedservicename],
+  if $file {
+    file { $zonefilename:
+      ensure  => file,
+      owner   => $dns::user,
+      group   => $dns::group,
+      mode    => '0644',
+      content => template('dns/zone.header.erb'),
+      replace => false,
+      notify  => Service[$::dns::namedservicename],
+    }
   }
 }
