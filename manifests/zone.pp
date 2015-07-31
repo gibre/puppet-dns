@@ -21,8 +21,9 @@ define dns::zone (
     $forwarders     = [],
 ) {
 
-  validate_bool($reverse)
-  validate_array($masters, $allow_transfer)
+  validate_bool($reverse, $file)
+  validate_array($masters, $allow_transfer, $forwarders)
+  validate_re($forward, ['first', 'only'], 'Only \'first\' or \'only\' are valide values for forward field')
 
   $zonefilename = "${zonefilepath}/${filename}"
 
