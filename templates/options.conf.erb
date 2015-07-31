@@ -4,7 +4,7 @@ forwarders { <%= scope.lookupvar('::dns::forwarders').join("; ") %>; };
 <% end -%>
 
 recursion <%= scope.lookupvar('::dns::recursion') %>;
-allow-query { <%= scope.lookupvar('::dns::allow_query'.join("; ") %>; };
+allow-query { <%= scope.lookupvar('::dns::allow_query').join("; ") %>; };
 dnssec-enable <%= scope.lookupvar('::dns::dnssec_enable') %>;
 dnssec-validation <%= scope.lookupvar('::dns::dnssec_validation') %>;
 
