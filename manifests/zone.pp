@@ -16,6 +16,9 @@ define dns::zone (
     $contact        = "root.${title}.",
     $zonefilepath   = $::dns::zonefilepath,
     $filename       = "db.${title}",
+    $file           = true,
+    $forward        = 'first',
+    $forwarders     = [],
 ) {
 
   validate_bool($reverse)
@@ -36,6 +39,7 @@ define dns::zone (
     mode    => '0644',
     content => template('dns/zone.header.erb'),
     replace => false,
+    onlyif  => $file,
     notify  => Service[$::dns::namedservicename],
   }
 }
