@@ -9,3 +9,8 @@ dnssec-enable <%= scope.lookupvar('::dns::dnssec_enable') %>;
 dnssec-validation <%= scope.lookupvar('::dns::dnssec_validation') %>;
 
 listen-on-v6 { <%= scope.lookupvar('::dns::listen_on_v6') %>; };
+
+<% if (@generate_statistics == true) -%>
+statistics-file "/var/log/bind/named.stats";
+zone-statistics yes ;
+<% end -%>

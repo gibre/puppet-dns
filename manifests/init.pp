@@ -15,7 +15,9 @@ class dns(
   $recursion          = $::dns::params::recursion,
   $allow_query        = $::dns::params::allow_query,
   $dnssec_enable      = $::dns::params::dnssec_enable,
-  $dnssec_validation  = $::dns::params::dnssec_validation
+  $dnssec_validation  = $::dns::params::dnssec_validation,
+  $generate_statistics  = $::dns::params::generate_statistics,
+  $statistic_channel    = $::dns::params::statistic_channel
 ) inherits dns::params {
   class { '::dns::install': } ~>
   class { '::dns::config': } ~>

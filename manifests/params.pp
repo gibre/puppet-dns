@@ -39,8 +39,11 @@ class dns::params {
     $forwarders         = []
 
     $listen_on_v6       = 'any'
-    $recursion          = 'yes' 
+    $recursion          = 'yes'
     $allow_query        = [ 'any' ]
     $dnssec_enable      = 'no'
     $dnssec_validation  = 'no'
+
+    $generate_statistics  = false
+    $statistic_channel    = 'inet 127.0.0.1 port 7766 allow { 127.0.0.1; };'
 }

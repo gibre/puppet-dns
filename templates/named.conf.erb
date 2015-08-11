@@ -14,3 +14,9 @@ include "<%= scope.lookupvar('::dns::localzonepath') %>";
 
 // Public view read by Server Admin
 include "<%= scope.lookupvar('::dns::publicviewpath') %>";
+
+<% if (@generate_statistics == true) -%>
+statistics-channels {
+	@statistic_channel
+};
+<% end -%>
