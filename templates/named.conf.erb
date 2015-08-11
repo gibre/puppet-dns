@@ -17,6 +17,6 @@ include "<%= scope.lookupvar('::dns::publicviewpath') %>";
 
 <% if (@generate_statistics == true) -%>
 statistics-channels {
-	@statistic_channel
+	<%= scope.lookupvar('::dns::statistic_channel') %>
 };
 <% end -%>
